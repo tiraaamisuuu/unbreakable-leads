@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "dev.unbreakableleads.compat.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": ["LeashableMixin", "MobEntityMixin", "FireworkRocketItemMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

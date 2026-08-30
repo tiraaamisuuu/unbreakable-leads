@@ -20,6 +20,12 @@ Install the mod on the integrated client/server for single-player. On a dedicate
 
 Build with `./gradlew build` (Windows: `gradlew.bat build`). The distributable jar is written to `build/libs/`.
 
+### Older Minecraft versions
+
+The main JAR is **not** compatible with older Minecraft versions: 26.1+ uses Mojang's unobfuscated names and a different leash API. A separate compatibility project and JAR is included for **Minecraft 1.21.11** (Fabric Loader 0.18.6, Fabric API 0.141.6+1.21.11). Build it with `gradlew.bat build` from `compat-1.21.11/`; the output is `compat-1.21.11/build/libs/unbreakable-leads-1.21.11-1.0.0.jar`.
+
+The 1.21.11 JAR protects player/fence leads from distance snaps, elytra-firework detachment, and mob mounting. Its API-era limitations are documented in that subproject's README; do not install both JARs together.
+
 ## Configuration
 
 Missing files are created with documented defaults. Malformed values are logged, replaced with safe defaults, and normalized; a malformed original is retained as `unbreakable-leads.properties.malformed` when possible.
