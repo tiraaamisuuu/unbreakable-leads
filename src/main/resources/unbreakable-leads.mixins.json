@@ -3,7 +3,9 @@
   "package": "dev.unbreakableleads.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
+    "EntityMixin",
     "FireworkRocketItemMixin",
+    "LeashFenceKnotEntityMixin",
     "LeashableMixin",
     "MobMixin",
     "ServerPlayerMixin"

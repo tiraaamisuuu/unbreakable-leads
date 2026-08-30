@@ -27,7 +27,7 @@ public interface LeashableMixin {
         final Leashable.LeashData data,
         final CallbackInfo ci
     ) {
-        if (LeashProtection.restoreDelayed((ServerLevel)entity.level(), entity, data)) {
+        if (entity.level() instanceof ServerLevel level && LeashProtection.restoreDelayed(level, entity, data)) {
             ci.cancel();
         }
     }

@@ -10,7 +10,7 @@
     "issues": "https://github.com/example/unbreakable-leads/issues"
   },
   "license": "MIT",
-  "icon": "assets/unbreakable_leads/icon.png",
+  "icon": "assets/unbreakable_leads/icon.svg",
   "environment": "*",
   "entrypoints": {
     "main": ["dev.unbreakableleads.UnbreakableLeads"]

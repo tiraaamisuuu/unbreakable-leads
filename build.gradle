@@ -10,6 +10,10 @@ base {
     archivesName = project.archives_base_name
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
@@ -17,6 +21,7 @@ dependencies {
 
     testImplementation platform('org.junit:junit-bom:5.13.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 processResources {

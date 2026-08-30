@@ -29,6 +29,6 @@ public final class UnbreakableLeads implements ModInitializer {
         return config;
     }
 
-    private UnbreakableLeads() {
+    public UnbreakableLeads() {
     }
 }
