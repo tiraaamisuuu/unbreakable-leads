@@ -26,6 +26,8 @@ The main JAR is **not** compatible with older Minecraft versions: 26.1+ uses Moj
 
 The 1.21.11 JAR protects player/fence leads from distance snaps, elytra-firework detachment, and mob mounting. Its API-era limitations are documented in that subproject's README; do not install both JARs together.
 
+A separate **1.20.6** build is also provided in `compat-legacy/` and in the releases. Versions 1.19.4 through 1.16.5 use still different leash internals; they are not labeled compatible until their own source and runtime builds pass verification.
+
 ## Configuration
 
 Missing files are created with documented defaults. Malformed values are logged, replaced with safe defaults, and normalized; a malformed original is retained as `unbreakable-leads.properties.malformed` when possible.

@@ -1,6 +1,7 @@
 .gradle/
 build/
 run/
+**/inspect/
 out/
 *.log
 *.hprof

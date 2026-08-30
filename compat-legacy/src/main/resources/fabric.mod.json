@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "unbreakable_leads",
+  "version": "${version}",
+  "name": "Unbreakable Leads (legacy compatibility)",
+  "description": "Keeps player-held and fence-knot leads from automatic distance, elytra, and mounting snaps.",
+  "authors": ["Unbreakable Leads contributors"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": { "main": ["dev.unbreakableleads.compat.UnbreakableLeadsCompat"] },
+  "mixins": ["unbreakable-leads.compat.mixins.json"],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=21",
+    "fabric-api": ">=${fabric_api_version}"
+  }
+}
