@@ -1,11 +1,9 @@
 .gradle/
 build/
-out/
 run/
-.idea/
-*.iml
-*.ipr
-*.iws
+out/
 *.log
-*.hprof
-
+*.iml
+.idea/
+.vscode/
+config/unbreakable-leads.properties
