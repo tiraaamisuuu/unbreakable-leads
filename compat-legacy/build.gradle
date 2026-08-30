@@ -20,10 +20,18 @@ loom { splitEnvironmentSourceSets() }
 
 processResources {
     inputs.property 'version', project.version
+    inputs.property 'minecraft_version', project.minecraft_version
+    inputs.property 'fabric_api_version', project.fabric_api_version
+    inputs.property 'loader_version', project.loader_version
+    inputs.property 'java_version', project.java_version
     filesMatching('fabric.mod.json') {
-        expand version: project.version, minecraft_version: project.minecraft_version, fabric_api_version: project.fabric_api_version, loader_version: project.loader_version
+        expand version: project.version, minecraft_version: project.minecraft_version, fabric_api_version: project.fabric_api_version, loader_version: project.loader_version, java_version: project.java_version
     }
 }
 
-tasks.withType(JavaCompile).configureEach { options.release = 21 }
-java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }
+def targetJava = Integer.parseInt(java_version)
+tasks.withType(JavaCompile).configureEach { options.release = targetJava }
+java {
+    sourceCompatibility = JavaVersion.toVersion(targetJava)
+    targetCompatibility = JavaVersion.toVersion(targetJava)
+}

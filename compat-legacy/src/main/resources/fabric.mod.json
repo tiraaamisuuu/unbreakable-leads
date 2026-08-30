@@ -11,8 +11,8 @@
   "mixins": ["unbreakable-leads.compat.mixins.json"],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "minecraft": "~${minecraft_version}",
-    "java": ">=21",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}",
     "fabric-api": ">=${fabric_api_version}"
   }
 }

@@ -2,6 +2,7 @@
 build/
 run/
 **/inspect/
+compat-builds/
 out/
 *.log
 *.hprof

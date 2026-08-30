@@ -20,13 +20,16 @@ Install the mod on the integrated client/server for single-player. On a dedicate
 
 Build with `./gradlew build` (Windows: `gradlew.bat build`). The distributable jar is written to `build/libs/`.
 
-### Older Minecraft versions
+### Compatibility JARs
 
-The main JAR is **not** compatible with older Minecraft versions: 26.1+ uses Mojang's unobfuscated names and a different leash API. A separate compatibility project and JAR is included for **Minecraft 1.21.11** (Fabric Loader 0.18.6, Fabric API 0.141.6+1.21.11). Build it with `gradlew.bat build` from `compat-1.21.11/`; the output is `compat-1.21.11/build/libs/unbreakable-leads-1.21.11-1.0.0.jar`.
+The 26.2 JAR is not compatible with older Minecraft versions. Every supported 1.20.x and 1.21.x release has its own JAR and GitHub release asset, with exact Minecraft/Fabric API metadata for Modrinth:
 
-The 1.21.11 JAR protects player/fence leads from distance snaps, elytra-firework detachment, and mob mounting. Its API-era limitations are documented in that subproject's README; do not install both JARs together.
+- **1.20.0–1.20.6:** `compat-legacy/` (Java 17 for 1.20–1.20.4; Java 21 for 1.20.5–1.20.6).
+- **1.21.0–1.21.3:** `compat-1.21-early/` (Java 21).
+- **1.21.4–1.21.5:** `compat-1.21-mid/` (Java 21).
+- **1.21.6–1.21.11:** `compat-1.21.11/` (Java 21).
 
-A separate **1.20.6** build is also provided in `compat-legacy/` and in the releases. Versions 1.19.4 through 1.16.5 use still different leash internals; they are not labeled compatible until their own source and runtime builds pass verification.
+Do not install more than one Unbreakable Leads JAR in the same instance. Versions 1.19.4 through 1.16.5 are not included; their leash internals require a separate port and are not being represented as compatible until independently verified.
 
 ## Configuration
 

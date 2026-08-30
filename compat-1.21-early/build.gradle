@@ -4,7 +4,6 @@ plugins {
 
 version = mod_version
 group = maven_group
-
 base { archivesName = "unbreakable-leads-${minecraft_version}" }
 
 repositories { mavenCentral() }
