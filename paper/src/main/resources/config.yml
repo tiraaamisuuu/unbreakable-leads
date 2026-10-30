@@ -1,0 +1,17 @@
+# Protect leads held directly by players.
+unbreakable-player-held: true
+
+# Protect leads tied to fence leash hitches.
+unbreakable-fence-attachments: true
+
+# Move a protected leashed entity near its holder when separation is extreme.
+teleport-extreme-separation: true
+
+# Distance in blocks at which catch-up teleporting is attempted (12.0-512.0).
+catch-up-distance: 24.0
+
+# Allow players to deliberately remove or shear a lead.
+intentional-detachment-allowed: true
+
+# Prevent leash-item drops for automatic breaks that the plugin cancels.
+suppress-break-sound-and-drop: true

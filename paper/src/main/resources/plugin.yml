@@ -1,0 +1,7 @@
+name: UnbreakableLeads
+version: '${version}'
+main: dev.unbreakableleads.paper.UnbreakableLeadsPaper
+description: Server-authoritative unbreakable leads for Paper.
+api-version: '26.3'
+authors: [Unbreakable Leads contributors]
+website: https://github.com/tiraaamisuuu/unbreakable-leads

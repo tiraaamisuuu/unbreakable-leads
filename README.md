@@ -20,6 +20,18 @@ Install the mod on the integrated client/server for single-player. On a dedicate
 
 Build with `./gradlew build` (Windows: `gradlew.bat build`). The distributable jar is written to `build/libs/`.
 
+### Paper 26.3
+
+Paper servers cannot load Fabric mod JARs. A separate server-only Paper plugin is provided in `paper/`, targeting **Paper 26.3 build 231** and **Java 25**.
+
+1. Download `unbreakable-leads-paper-26.3-1.0.0.jar` from the Paper GitHub release.
+2. Put it in the Paper server's `plugins/` directory, not `mods/`.
+3. Start the server once to create `plugins/UnbreakableLeads/config.yml`.
+
+The Paper port cancels automatic distance/unknown detach events, supports player and fence-hitch holders, suppresses automatic lead drops, optionally catches up extremely separated entities, and preserves deliberate removal by default. It uses Paper's supported event/entity API and does not tick every entity globally. Paper documents that cancellation cannot preserve a leash through a dimension change, so cross-dimension attachment is not promised.
+
+Build it with `gradlew.bat -p paper build` on Windows or `./gradlew -p paper build` elsewhere. Its JAR is written to `paper/build/libs/`.
+
 ### Compatibility JARs
 
 The 26.2 JAR is not compatible with older Minecraft versions. Every supported 1.20.x and 1.21.x release has its own JAR and GitHub release asset, with exact Minecraft/Fabric API metadata for Modrinth:
