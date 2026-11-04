@@ -5,6 +5,8 @@ plugins {
 
 version = project.mod_version
 group = project.maven_group
+def releaseVersion = project.version.toString()
+def licenseName = "LICENSE_${project.archives_base_name}"
 
 base {
     archivesName = project.archives_base_name
@@ -27,7 +29,7 @@ dependencies {
 processResources {
     inputs.property 'version', project.version
     filesMatching('fabric.mod.json') {
-        expand version: project.version
+        expand version: releaseVersion
     }
 }
 
@@ -48,8 +50,13 @@ test {
 
 jar {
     from('LICENSE') {
-        rename { "LICENSE_${project.archives_base_name}" }
+        rename { licenseName }
     }
+}
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
 }
 
 publishing {

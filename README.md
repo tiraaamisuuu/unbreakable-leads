@@ -1,20 +1,22 @@
 # Unbreakable Leads
 
-Unbreakable Leads is an open-source Fabric mod for Minecraft Java Edition **26.2**. It makes configured lead attachments server-authoritatively survive vanilla automatic snap conditions: long distance, fast movement, elytra firework boosts, mounting, knockback, falling, lag spikes, and ordinary chunk unload/reload cycles.
+Unbreakable Leads is an open-source Fabric mod for Minecraft Java Edition **26.3**, with a separate Paper plugin for Paper 26.3 servers. It protects configured lead attachments against automatic breaking from distance and movement. The Fabric edition also covers elytra firework boosts, mounting, and ordinary chunk unload/reload cycles.
+
+Download [version 1.1.0 for Minecraft 26.3](https://github.com/tiraaamisuuu/unbreakable-leads/releases/tag/v1.1.0-mc26.3). Choose the Fabric jar for a Fabric instance or the Paper jar for a Paper server.
 
 ## Requirements
 
-- Minecraft Java Edition 26.2
-- Fabric Loader 0.19.3 or newer (verified with 0.19.5)
+- Minecraft Java Edition 26.3
+- Fabric Loader 0.20.1 or newer
 - Java 25
-- Fabric API 0.150.1+26.2 or newer (release build: 0.158.0+26.2)
+- Fabric API 0.165.2+26.3 or newer for Minecraft 26.3
 
 Install the mod on the integrated client/server for single-player. On a dedicated server it is server-authoritative; vanilla or otherwise unmodded clients can join. No client installation is required unless a future release adds client presentation features.
 
 ## Installation
 
-1. Install Fabric Loader for 26.2 and Java 25.
-2. Put `unbreakable-leads-1.0.0.jar` and the matching Fabric API jar in the server (or client) `mods` directory.
+1. Install Fabric Loader for 26.3 and Java 25.
+2. Put `unbreakable-leads-26.3-1.1.0.jar` and the matching Fabric API jar in the server (or client) `mods` directory.
 3. Start once. The configuration is created at `config/unbreakable-leads.properties`.
 4. Restart after changing configuration.
 
@@ -22,9 +24,9 @@ Build with `./gradlew build` (Windows: `gradlew.bat build`). The distributable j
 
 ### Paper 26.3
 
-Paper servers cannot load Fabric mod JARs. A separate server-only Paper plugin is provided in `paper/`, targeting **Paper 26.3 build 231** and **Java 25**.
+Paper servers cannot load Fabric mod JARs. A separate server-only Paper plugin is provided in `paper/`, targeting **Paper 26.3 build 240** and **Java 25**.
 
-1. Download `unbreakable-leads-paper-26.3-1.0.0.jar` from the Paper GitHub release.
+1. Download `unbreakable-leads-paper-26.3-1.1.0.jar` from the 1.1.0 GitHub release.
 2. Put it in the Paper server's `plugins/` directory, not `mods/`.
 3. Start the server once to create `plugins/UnbreakableLeads/config.yml`.
 
@@ -34,7 +36,7 @@ Build it with `gradlew.bat -p paper build` on Windows or `./gradlew -p paper bui
 
 ### Compatibility JARs
 
-The 26.2 JAR is not compatible with older Minecraft versions. Every supported 1.20.x and 1.21.x release has its own JAR and GitHub release asset, with exact Minecraft/Fabric API metadata for Modrinth:
+The Fabric 26.3 jar is specific to Minecraft 26.3. Minecraft 26.2 still uses the [Fabric 1.0.0 release](https://github.com/tiraaamisuuu/unbreakable-leads/releases/tag/v1.0.0). Every supported 1.20.x and 1.21.x release has its own JAR and GitHub release asset, with exact Minecraft/Fabric API metadata for Modrinth:
 
 - **1.20.0–1.20.6:** `compat-legacy/` (Java 17 for 1.20–1.20.4; Java 21 for 1.20.5–1.20.6).
 - **1.21.0–1.21.3:** `compat-1.21-early/` (Java 21).
@@ -60,7 +62,7 @@ The file is a Java-properties file for easy SSH/server-panel editing. Options ar
 
 ## How it works
 
-Minecraft 26.2 centralizes leash simulation in `Leashable.tickLeash`. Small, documented Mixins at that boundary replace the finite snap distance for configured holders, retain delayed attachments while a holder is temporarily unloaded, rebind holders after reload, and perform same-dimension catch-up. Additional redirects cover the elytra-firework and mob-mount automatic drop paths. No global entity scan or per-world attachment registry is introduced; scans occur only during a teleport, shear, or firework action.
+Minecraft 26.3 centralizes leash simulation in `Leashable.tickLeash`. Small, documented Mixins at that boundary replace the finite snap distance for configured holders, retain delayed attachments while a holder is temporarily unloaded, rebind holders after reload, and perform same-dimension catch-up. Additional redirects cover the elytra-firework and mob-mount automatic drop paths. No global entity scan or per-world attachment registry is introduced; scans occur only during a teleport, shear, or firework action.
 
 Intentional player actions remain distinct from automatic breaks. Entity death, permanent removal, impossible dimension changes, and invalid fence knots may end a relationship. Vanilla `LeashData` remains compatible, so removing the mod leaves worlds loadable and returns affected leads to vanilla behavior.
 
@@ -83,7 +85,9 @@ Automated checks:
 
 - Java 25 compilation and Gradle packaging
 - JUnit validation of defaults, accepted values, malformed values, and range recovery
-- Dedicated Fabric 26.2 server bootstrap with all Mixins applied
+- Dedicated Fabric 26.3 server bootstrap with Loader 0.20.1, Fabric API 0.165.2+26.3, and all six Mixins applied
+- Dedicated Paper 26.3 build 240 server bootstrap with the plugin enabled
+- Both servers reach the ready state and shut down cleanly; gameplay scenarios below are the manual checklist
 
 Manual release checklist:
 
@@ -106,7 +110,9 @@ Manual release checklist:
 gradlew.bat build
 ```
 
-The project uses Fabric Loom 1.17.20, Gradle 9.5.1, Mojang's unobfuscated 26.2 names, and Java release 25. Generated `build/`, `run/`, and local configuration are ignored by Git.
+The project uses Fabric Loom 1.17.20, Gradle 9.7.1, Mojang's unobfuscated 26.3 names, and Java release 25. Generated `build/`, `run/`, and local configuration are ignored by Git.
+
+GitHub Actions builds both editions on pushes and pull requests. See [RELEASING.md](RELEASING.md) for publishing and server smoke checks.
 
 ## License
 

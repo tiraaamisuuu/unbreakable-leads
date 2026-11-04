@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0 — 2026-11-04
+
+- Ports the main Fabric release from Minecraft 26.2 to 26.3, with Fabric Loader 0.20.1 and Fabric API 0.165.2+26.3.
+- Rebuilds the Paper edition against Paper 26.3 build 240.
+- Verifies all six Fabric Mixins on a dedicated 26.3 server; both editions reach the ready state and shut down cleanly.
+- Keeps existing configuration keys and defaults and retains separate older Fabric releases.
+- Updates Gradle to 9.7.1 with distribution checksum verification, fixes project links in Fabric metadata, and adds CI/release workflows and release checksums.
+
 ## Paper 1.0.0 — 2026-10-30
 
 - Adds a separate server-only plugin for Paper 26.3 build 231 and Java 25.
