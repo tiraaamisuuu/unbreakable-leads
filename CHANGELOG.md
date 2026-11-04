@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 — 2026-11-04
+
+- Fixes the Gradle launcher's executable flag for Linux build and release runners.
+- Publishes the Minecraft 26.3 Fabric and Paper update after the 1.1.0 release workflow failed before publishing any files.
+
 ## 1.1.0 — 2026-11-04
 
 - Ports the main Fabric release from Minecraft 26.2 to 26.3, with Fabric Loader 0.20.1 and Fabric API 0.165.2+26.3.
