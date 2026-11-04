@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2 — 2026-11-04
+
+- Fixes the unnecessarily strict Fabric API minimum: Minecraft 26.3 instances with Fabric API 0.165.0+26.3 can now load the mod.
+- Builds and verifies the Fabric edition against 0.165.0+26.3 instead of requiring 0.165.2+26.3.
+- Keeps Paper behavior unchanged; its artifact carries the matching release version.
+
 ## 1.1.1 — 2026-11-04
 
 - Fixes the Gradle launcher's executable flag for Linux build and release runners.

@@ -2,21 +2,21 @@
 
 Unbreakable Leads is an open-source Fabric mod for Minecraft Java Edition **26.3**, with a separate Paper plugin for Paper 26.3 servers. It protects configured lead attachments against automatic breaking from distance and movement. The Fabric edition also covers elytra firework boosts, mounting, and ordinary chunk unload/reload cycles.
 
-Download [version 1.1.1 for Minecraft 26.3](https://github.com/tiraaamisuuu/unbreakable-leads/releases/tag/v1.1.1-mc26.3). Choose the Fabric jar for a Fabric instance or the Paper jar for a Paper server.
+Download [version 1.1.2 for Minecraft 26.3](https://github.com/tiraaamisuuu/unbreakable-leads/releases/tag/v1.1.2-mc26.3). Choose the Fabric jar for a Fabric instance or the Paper jar for a Paper server.
 
 ## Requirements
 
 - Minecraft Java Edition 26.3
 - Fabric Loader 0.20.1 or newer
 - Java 25
-- Fabric API 0.165.2+26.3 or newer for Minecraft 26.3
+- Fabric API 0.165.0+26.3 or newer for Minecraft 26.3
 
 Install the mod on the integrated client/server for single-player. On a dedicated server it is server-authoritative; vanilla or otherwise unmodded clients can join. No client installation is required unless a future release adds client presentation features.
 
 ## Installation
 
 1. Install Fabric Loader for 26.3 and Java 25.
-2. Put `unbreakable-leads-26.3-1.1.1.jar` and the matching Fabric API jar in the server (or client) `mods` directory.
+2. Put `unbreakable-leads-26.3-1.1.2.jar` and the matching Fabric API jar in the server (or client) `mods` directory.
 3. Start once. The configuration is created at `config/unbreakable-leads.properties`.
 4. Restart after changing configuration.
 
@@ -26,7 +26,7 @@ Build with `./gradlew build` (Windows: `gradlew.bat build`). The distributable j
 
 Paper servers cannot load Fabric mod JARs. A separate server-only Paper plugin is provided in `paper/`, targeting **Paper 26.3 build 240** and **Java 25**.
 
-1. Download `unbreakable-leads-paper-26.3-1.1.1.jar` from the 1.1.1 GitHub release.
+1. Download `unbreakable-leads-paper-26.3-1.1.2.jar` from the 1.1.2 GitHub release.
 2. Put it in the Paper server's `plugins/` directory, not `mods/`.
 3. Start the server once to create `plugins/UnbreakableLeads/config.yml`.
 
@@ -85,7 +85,7 @@ Automated checks:
 
 - Java 25 compilation and Gradle packaging
 - JUnit validation of defaults, accepted values, malformed values, and range recovery
-- Dedicated Fabric 26.3 server bootstrap with Loader 0.20.1, Fabric API 0.165.2+26.3, and all six Mixins applied
+- Dedicated Fabric 26.3 server bootstrap with Loader 0.20.1, Fabric API 0.165.0+26.3, and all six Mixins applied
 - Dedicated Paper 26.3 build 240 server bootstrap with the plugin enabled
 - Both servers reach the ready state and shut down cleanly; gameplay scenarios below are the manual checklist
 
